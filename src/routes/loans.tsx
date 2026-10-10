@@ -16,13 +16,13 @@ import { loanProducts, formatKES } from "../lib/loans";
 export const Route = createFileRoute("/loans")({
   head: () => ({
     meta: [
-      { title: "Our Loan Products — Pamoja Sacco" },
+      { title: "Our Loan Products — Menger Sacco" },
       {
         name: "description",
         content:
-          "Explore Pamoja Sacco microloans: Biashara business loans, Elimu school fees, Kilimo agriculture, Boda Boda asset financing, Dharura emergency and Nyumba home loans.",
+          "Explore Menger Sacco microloans: Biashara business loans, Elimu school fees, Kilimo agriculture, Boda Boda asset financing, Dharura emergency and Nyumba home loans.",
       },
-      { property: "og:title", content: "Our Loan Products — Pamoja Sacco" },
+      { property: "og:title", content: "Our Loan Products — Menger Sacco" },
       {
         property: "og:description",
         content:

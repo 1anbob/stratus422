@@ -19,13 +19,13 @@ import bodaImg from "../assets/boda.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pamoja Sacco — Affordable Microloans in Kenya" },
+      { title: "Menger Sacco — Affordable Microloans in Kenya" },
       {
         name: "description",
         content:
-          "Grow your business, pay school fees, finance your farm or own a boda boda. Pamoja Sacco offers microloans from KES 5,000 to 2,000,000 with fast M-Pesa disbursement.",
+          "Grow your business, pay school fees, finance your farm or own a boda boda. Menger Sacco offers microloans from KES 5,000 to 2,000,000 with fast M-Pesa disbursement.",
       },
-      { property: "og:title", content: "Pamoja Sacco — Affordable Microloans in Kenya" },
+      { property: "og:title", content: "Menger Sacco — Affordable Microloans in Kenya" },
       {
         property: "og:description",
         content:
@@ -48,10 +48,10 @@ const iconMap: Record<string, typeof Store> = {
 };
 
 const stats = [
-  { value: "25,000+", label: "Active members" },
-  { value: "KES 1.8B", label: "Loans disbursed" },
-  { value: "14", label: "Branches countrywide" },
-  { value: "15 yrs", label: "Serving Kenya" },
+  { value: "1,000+", label: "Active members" },
+  { value: "KES 1.8M", label: "Loans disbursed" },
+  { value: "3", label: "Branches countrywide" },
+  { value: "5 yrs", label: "Serving Kenya" },
 ];
 
 const steps = [
@@ -88,8 +88,8 @@ function Index() {
               <span className="text-primary">harambee</span> style
             </h1>
             <p className="mt-4 max-w-lg text-lg text-muted-foreground">
-              From mama mboga stalls to boda boda fleets, Pamoja Sacco has
-              financed over 25,000 Kenyan dreams with fair rates and fast
+              From mama mboga stalls to boda boda fleets, Menger Sacco has
+              financed over 1,000 Kenyan dreams with fair rates and fast
               M-Pesa disbursement.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -255,7 +255,7 @@ function Index() {
               to="/membership"
               className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 font-semibold text-gold-foreground transition-opacity hover:opacity-90"
             >
-              Join Pamoja Sacco <ArrowRight className="h-4 w-4" />
+              Join Menger Sacco <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/contact"

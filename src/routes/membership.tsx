@@ -4,13 +4,13 @@ import { CheckCircle2, ArrowRight, PiggyBank, TrendingUp, Users } from "lucide-r
 export const Route = createFileRoute("/membership")({
   head: () => ({
     meta: [
-      { title: "Become a Member — Pamoja Sacco" },
+      { title: "Become a Member — Menger Sacco" },
       {
         name: "description",
         content:
-          "Join Pamoja Sacco with your National ID and KES 500. Save from KES 200 a week, earn annual dividends and borrow up to 3x your savings.",
+          "Join Menger Sacco with your National ID and KES 500. Save from KES 200 a week, earn annual dividends and borrow up to 3x your savings.",
       },
-      { property: "og:title", content: "Become a Member — Pamoja Sacco" },
+      { property: "og:title", content: "Become a Member — Menger Sacco" },
       {
         property: "og:description",
         content:
@@ -53,7 +53,7 @@ function MembershipPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="text-center">
-        <h1 className="text-4xl font-extrabold md:text-5xl">Join Pamoja Sacco</h1>
+        <h1 className="text-4xl font-extrabold md:text-5xl">Join Menger Sacco</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
           Membership is open to every Kenyan — employed, self-employed, chamas
           and groups. Karibu.
@@ -88,8 +88,8 @@ function MembershipPage() {
             <li>
               <p className="font-semibold">1. Visit any branch</p>
               <p className="mt-1 text-sm text-primary-foreground/80">
-                We have 14 branches across Nairobi, Mombasa, Kisumu, Nakuru and
-                Eldoret. Registration takes 15 minutes.
+                We have 3 branches across Nairobi, Homa Bay and Kisumu.
+                Registration takes 15 minutes.
               </p>
             </li>
             <li>

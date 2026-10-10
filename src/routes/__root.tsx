@@ -32,7 +32,7 @@ function Header() {
             <Landmark className="h-5 w-5" />
           </span>
           <span className="font-display text-lg font-bold text-foreground">
-            Pamoja Sacco
+            Menger Sacco
           </span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
@@ -93,7 +93,7 @@ function Footer() {
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Landmark className="h-5 w-5" />
             </span>
-            <span className="font-display text-lg font-bold">Pamoja Sacco</span>
+            <span className="font-display text-lg font-bold">Menger Sacco</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
             Empowering Kenyan families and businesses with affordable
@@ -128,7 +128,7 @@ function Footer() {
               <Phone className="h-4 w-4" /> +254 700 123 456
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4" /> info@pamojasacco.co.ke
+              <Mail className="h-4 w-4" /> info@mengersacco.co.ke
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4" /> Kimathi Street, Nairobi
@@ -137,7 +137,7 @@ function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Pamoja Sacco Society Ltd. All rights
+        © {new Date().getFullYear()} Menger Sacco Society Ltd. All rights
         reserved. Regulated by the Sacco Societies Regulatory Authority (SASRA).
       </div>
     </footer>
@@ -209,13 +209,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pamoja Sacco — Microloans for Kenyan Families & Businesses" },
+      { title: "Menger Sacco — Microloans for Kenyan Families & Businesses" },
       {
         name: "description",
         content:
-          "Pamoja Sacco offers affordable microloans in Kenya: business, school fees, agriculture, boda boda and emergency loans. Join 25,000+ members today.",
+          "Menger Sacco offers affordable microloans in Kenya: business, school fees, agriculture, boda boda and emergency loans. Join 1,000+ members today.",
       },
-      { property: "og:title", content: "Pamoja Sacco — Microloans for Kenya" },
+      { property: "og:title", content: "Menger Sacco — Microloans for Kenya" },
       {
         property: "og:description",
         content:

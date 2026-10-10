@@ -5,17 +5,17 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Pamoja Sacco" },
+      { title: "Contact Us — Menger Sacco" },
       {
         name: "description",
         content:
-          "Reach Pamoja Sacco: call +254 700 123 456, visit our Kimathi Street head office in Nairobi, or send us a message. Open Monday to Saturday.",
+          "Reach Menger Sacco: call +254 700 123 456, visit our Kimathi Street head office in Nairobi, or send us a message. Open Monday to Saturday.",
       },
-      { property: "og:title", content: "Contact Us — Pamoja Sacco" },
+      { property: "og:title", content: "Contact Us — Menger Sacco" },
       {
         property: "og:description",
         content:
-          "Call, visit or message Pamoja Sacco. Head office on Kimathi Street, Nairobi. Open Mon–Sat.",
+          "Call, visit or message Menger Sacco. Head office on Kimathi Street, Nairobi. Open Mon–Sat.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const branches = [
-  { name: "Nairobi CBD (Head Office)", address: "Pamoja House, Kimathi Street", phone: "+254 700 123 456" },
+  { name: "Nairobi CBD (Head Office)", address: "Menger House, Kimathi Street", phone: "+254 700 123 456" },
   { name: "Gikomba", address: "Muhoroni Lane, Gikomba Market", phone: "+254 700 123 457" },
   { name: "Mombasa", address: "Nkrumah Road, Mombasa", phone: "+254 700 123 458" },
   { name: "Kisumu", address: "Oginga Odinga Street, Kisumu", phone: "+254 700 123 459" },
@@ -58,7 +58,7 @@ function ContactPage() {
             <div className="rounded-2xl border bg-card p-5">
               <Mail className="h-6 w-6 text-primary" />
               <h2 className="mt-3 font-bold">Email</h2>
-              <p className="mt-1 text-sm text-muted-foreground">info@pamojasacco.co.ke</p>
+              <p className="mt-1 text-sm text-muted-foreground">info@mengersacco.co.ke</p>
             </div>
             <div className="rounded-2xl border bg-card p-5">
               <MessageSquare className="h-6 w-6 text-primary" />

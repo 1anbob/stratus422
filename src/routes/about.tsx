@@ -4,17 +4,17 @@ import { ShieldCheck, Eye, HeartHandshake } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Pamoja Sacco" },
+      { title: "About Us — Menger Sacco" },
       {
         name: "description",
         content:
-          "Founded in 2009 in Nairobi, Pamoja Sacco has grown to 25,000+ members and KES 1.8 billion in loans disbursed to Kenyan families and small businesses.",
+          "Founded in 2019 in Oyugis, Menger Sacco has grown to 1,000+ members and KES 1.8 million in loans disbursed to Kenyan families and small businesses.",
       },
-      { property: "og:title", content: "About Us — Pamoja Sacco" },
+      { property: "og:title", content: "About Us — Menger Sacco" },
       {
         property: "og:description",
         content:
-          "25,000+ members, 14 branches, KES 1.8B disbursed. Learn the story behind Pamoja Sacco.",
+          "1,000+ members, 3 branches, KES 1.8M disbursed. Learn the story behind Menger Sacco.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -42,11 +42,11 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2009", text: "Founded by 40 market traders in Gikomba, Nairobi." },
-  { year: "2013", text: "Licensed by SASRA; membership passes 5,000." },
-  { year: "2017", text: "Launched M-Pesa savings and *483# mobile banking." },
-  { year: "2021", text: "Opened branches in Mombasa, Kisumu and Eldoret." },
-  { year: "2026", text: "Crossed KES 1.8 billion in cumulative loans disbursed." },
+  { year: "2019", text: "Founded by market traders in Oyugis." },
+  { year: "2023", text: "Licensed by SASRA; membership passes 1,000." },
+  { year: "2024", text: "Launched M-Pesa savings and *483# mobile banking." },
+  { year: "2025", text: "Opened branches in Mombasa, Kisumu and Eldoret." },
+  { year: "2026", text: "Crossed KES 1.8 million in cumulative loans disbursed." },
 ];
 
 function AboutPage() {
@@ -55,9 +55,9 @@ function AboutPage() {
       <div className="max-w-3xl">
         <h1 className="text-4xl font-extrabold md:text-5xl">Our Story</h1>
         <p className="mt-6 text-lg text-muted-foreground">
-          Pamoja Sacco began in 2009 when forty market traders in Gikomba
+          Menger Sacco began in 2019 when forty market traders in Oyugis
           pooled their savings to escape predatory lenders. Today we serve
-          over 25,000 members across Kenya — but the idea hasn't changed:
+          over 1,000 members across Kenya — but the idea hasn't changed:
           ordinary people, pooling together, can finance extraordinary things.
         </p>
       </div>
@@ -90,7 +90,7 @@ function AboutPage() {
       <div className="mt-16 rounded-2xl bg-secondary p-8 md:p-12">
         <h2 className="text-2xl font-bold">Governance & regulation</h2>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Pamoja Sacco Society Ltd is licensed and supervised by the Sacco
+          Menger Sacco Society Ltd is licensed and supervised by the Sacco
           Societies Regulatory Authority (SASRA). We are audited annually by an
           independent firm, and member deposits are protected under our
           fidelity and deposit insurance arrangements. An elected board of
