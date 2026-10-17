@@ -2,6 +2,34 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { useState } from "react";
 
+import { supabase } from "../integrations/supabase/client";
+
+export type ContactSubmission = {
+  name: string;
+  phone: string;
+  topic: string;
+  message: string;
+};
+
+export async function saveContactMessage({ name, phone, topic, message }: ContactSubmission) {
+  const payload = {
+    full_name: name.trim(),
+    phone: phone.trim(),
+    topic: topic.trim(),
+    message: message.trim(),
+    source: "website",
+    created_at: new Date().toISOString(),
+  };
+
+  const { error } = await (supabase as any).from("contact_messages").insert(payload);
+
+  if (error) {
+    throw new Error(error.message || "Unable to save your message.");
+  }
+
+  return payload;
+}
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -25,16 +53,37 @@ export const Route = createFileRoute("/contact")({
 });
 
 const branches = [
-  { name: "Nairobi CBD (Head Office)", address: "Menger House, Kimathi Street", phone: "+254 700 123 456" },
-  { name: "Gikomba", address: "Muhoroni Lane, Gikomba Market", phone: "+254 700 123 457" },
-  { name: "Mombasa", address: "Nkrumah Road, Mombasa", phone: "+254 700 123 458" },
-  { name: "Kisumu", address: "Oginga Odinga Street, Kisumu", phone: "+254 700 123 459" },
-  { name: "Nakuru", address: "Kenyatta Avenue, Nakuru", phone: "+254 700 123 460" },
-  { name: "Eldoret", address: "Uganda Road, Eldoret", phone: "+254 700 123 461" },
+  { name: "Oyugis Town (Head Office)", address: "Menger Sacco Oyugis", phone: "+254 700 123 456" },
+  { name: "Kisumu City", address: "Muhoroni, Kisumu Market", phone: "+254 700 123 457" }
 ];
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    topic: "Membership",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      await saveContactMessage(formData);
+      setSent(true);
+    } catch (saveError) {
+      setError(
+        saveError instanceof Error ? saveError.message : "Unable to send your message right now.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
@@ -100,18 +149,20 @@ function ContactPage() {
               </p>
             </div>
           ) : (
-            <form
-              className="mt-6 space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
-            >
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+              {error ? (
+                <div className="rounded-lg border border-destructive/50 bg-destructive/5 p-3 text-sm text-destructive">
+                  {error}
+                </div>
+              ) : null}
+
               <div>
                 <label htmlFor="name" className="text-sm font-medium">Full name</label>
                 <input
                   id="name"
                   required
+                  value={formData.name}
+                  onChange={(e) => setFormData((current) => ({ ...current, name: e.target.value }))}
                   className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                   placeholder="Jane Wanjiku"
                 />
@@ -122,6 +173,8 @@ function ContactPage() {
                   id="phone"
                   required
                   type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData((current) => ({ ...current, phone: e.target.value }))}
                   className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                   placeholder="07XX XXX XXX"
                 />
@@ -130,6 +183,8 @@ function ContactPage() {
                 <label htmlFor="topic" className="text-sm font-medium">Topic</label>
                 <select
                   id="topic"
+                  value={formData.topic}
+                  onChange={(e) => setFormData((current) => ({ ...current, topic: e.target.value }))}
                   className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 >
                   <option>Membership</option>
@@ -145,15 +200,18 @@ function ContactPage() {
                   id="message"
                   required
                   rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData((current) => ({ ...current, message: e.target.value }))}
                   className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                   placeholder="How can we help?"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                disabled={submitting}
+                className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}

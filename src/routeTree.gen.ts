@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as LoansRouteImport } from './routes/loans'
 import { Route as MembershipRouteImport } from './routes/membership'
+import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,6 +32,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoansRoute = LoansRouteImport.update({
   id: '/loans',
   path: '/loans',
@@ -40,43 +47,78 @@ const MembershipRoute = MembershipRouteImport.update({
   path: '/membership',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/admin/messages',
+  path: '/admin/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/documents': typeof DocumentsRoute
   '/loans': typeof LoansRoute
   '/membership': typeof MembershipRoute
+  '/admin/messages': typeof AdminMessagesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/documents': typeof DocumentsRoute
   '/loans': typeof LoansRoute
   '/membership': typeof MembershipRoute
+  '/admin/messages': typeof AdminMessagesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/documents': typeof DocumentsRoute
   '/loans': typeof LoansRoute
   '/membership': typeof MembershipRoute
+  '/admin/messages': typeof AdminMessagesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/loans' | '/membership'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/documents'
+    | '/loans'
+    | '/membership'
+    | '/admin/messages'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/loans' | '/membership'
-  id: '__root__' | '/' | '/about' | '/contact' | '/loans' | '/membership'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/documents'
+    | '/loans'
+    | '/membership'
+    | '/admin/messages'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/documents'
+    | '/loans'
+    | '/membership'
+    | '/admin/messages'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DocumentsRoute: typeof DocumentsRoute
   LoansRoute: typeof LoansRoute
   MembershipRoute: typeof MembershipRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,6 +144,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/loans': {
       id: '/loans'
       path: '/loans'
@@ -116,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MembershipRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/admin/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DocumentsRoute: DocumentsRoute,
   LoansRoute: LoansRoute,
   MembershipRoute: MembershipRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -134,7 +134,8 @@ function LoansPage() {
           return (
             <div
               key={loan.slug}
-              className={`grid gap-6 rounded-2xl border bg-card p-6 shadow-sm md:grid-cols-[auto_1fr_auto] md:items-center md:p-8 ${
+              id={loan.slug}
+              className={`grid scroll-mt-24 gap-6 rounded-2xl border bg-card p-6 shadow-sm md:grid-cols-[auto_1fr_auto] md:items-center md:p-8 ${
                 i % 2 === 1 ? "bg-secondary/50" : ""
               }`}
             >

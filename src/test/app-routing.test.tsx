@@ -14,4 +14,20 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches the admin contact messages route", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/admin/messages");
+
+    expect(matches.at(-1)?.routeId).toBe("/admin/messages");
+  });
+
+  it("matches the member documents route", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/documents");
+
+    expect(matches.at(-1)?.routeId).toBe("/documents");
+  });
 });

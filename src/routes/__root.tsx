@@ -13,11 +13,13 @@ import { Landmark, Menu, X, Phone, Mail, MapPin } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { loanProducts } from "../lib/loans";
 
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/loans", label: "Loans" },
   { to: "/membership", label: "Membership" },
+  { to: "/documents", label: "Documents" },
   { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -115,10 +117,13 @@ function Footer() {
         <div>
           <h3 className="font-semibold">Loan Products</h3>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li>Biashara Business Loan</li>
-            <li>Elimu School Fees Loan</li>
-            <li>Kilimo Agri Loan</li>
-            <li>Boda Boda Asset Loan</li>
+            {loanProducts.map((loan) => (
+              <li key={loan.slug}>
+                <Link to="/loans" hash={loan.slug} className="hover:text-foreground">
+                  {loan.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

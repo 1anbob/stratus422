@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, ArrowRight, PiggyBank, TrendingUp, Users } from "lucide-react";
+import { CheckCircle2, ArrowRight, PiggyBank, TrendingUp, Users, Download } from "lucide-react";
 
 export const Route = createFileRoute("/membership")({
   head: () => ({
@@ -108,10 +108,10 @@ function MembershipPage() {
             </li>
           </ol>
           <Link
-            to="/contact"
+            to="/documents"
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 font-semibold text-gold-foreground transition-opacity hover:opacity-90"
           >
-            Start Registration <ArrowRight className="h-4 w-4" />
+            Get Registration Forms <Download className="h-4 w-4" />
           </Link>
         </div>
       </div>
