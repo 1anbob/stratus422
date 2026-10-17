@@ -9,7 +9,7 @@ import {
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Landmark, Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -30,9 +30,7 @@ function Header() {
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Landmark className="h-5 w-5" />
-          </span>
+          <img src="/menger.png" alt="" className="h-9 w-9 rounded-lg object-cover" />
           <span className="font-display text-lg font-bold text-foreground">
             Menger Sacco
           </span>
@@ -60,12 +58,17 @@ function Header() {
           className="md:hidden text-foreground"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
       {open && (
-        <nav className="border-t bg-background px-4 py-4 md:hidden">
+        <nav
+          id="mobile-navigation"
+          className="absolute left-0 right-0 top-full border-t bg-background px-4 py-4 shadow-lg md:hidden"
+        >
           <div className="flex flex-col gap-3">
             {navLinks.map((l) => (
               <Link
@@ -92,9 +95,7 @@ function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Landmark className="h-5 w-5" />
-            </span>
+            <img src="/menger.png" alt="" className="h-9 w-9 rounded-lg object-cover" />
             <span className="font-display text-lg font-bold">Menger Sacco</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">

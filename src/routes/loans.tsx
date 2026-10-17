@@ -47,7 +47,7 @@ const iconMap: Record<string, typeof Store> = {
 function LoanCalculator() {
   const [amount, setAmount] = useState(100000);
   const [months, setMonths] = useState(12);
-  const monthlyRate = 0.015;
+  const monthlyRate = 0.020;
 
   const { monthly, total } = useMemo(() => {
     const r = monthlyRate;
@@ -64,7 +64,7 @@ function LoanCalculator() {
         <h2 className="text-2xl font-bold">Loan Calculator</h2>
       </div>
       <p className="mt-2 text-sm text-muted-foreground">
-        Estimate repayments at 1.5% per month on reducing balance.
+        Estimate repayments at 2% per month on reducing balance.
       </p>
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         <div>
@@ -88,7 +88,7 @@ function LoanCalculator() {
           <input
             type="range"
             min={3}
-            max={60}
+            max={36}
             step={1}
             value={months}
             onChange={(e) => setMonths(Number(e.target.value))}
