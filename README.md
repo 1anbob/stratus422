@@ -23,6 +23,20 @@ npm i
 npm run dev
 ```
 
+## Paystack membership payments
+
+The membership page opens Paystack Inline Checkout with the KES 1 test amount.
+After success, it redirects to `/account`, where the transaction is verified
+server-side before showing a success message. For local testing, copy
+`.env.example` to `.env` and set `PAYSTACK_SECRET_KEY` to your Paystack test
+secret key and `VITE_PAYSTACK_PUBLIC_KEY` to your test public key. The secret
+key must remain server-side; only the public key uses the `VITE_` prefix.
+
+The server currently charges KES 1, configured in `src/lib/paystack.ts`, as a
+temporary test amount. Update that constant to the approved membership fee
+before going live. Use a Paystack live secret key only when the production
+callback URL and fee are configured.
+
 ## Contact message administration
 
 The admin message view is available at `/admin/messages`. Apply
