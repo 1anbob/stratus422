@@ -44,7 +44,7 @@ export const initializeMembershipPayment = createServerFn({ method: "POST" })
   });
 
 export const verifyMembershipPayment = createServerFn({ method: "GET" })
-  .inputValidator((input: unknown) => referenceSchema.parse(input))
+  .validator((input: unknown) => referenceSchema.parse(input))
   .handler(async ({ data: reference }) => {
     const payment = await paystackRequest<{
       status: string;
